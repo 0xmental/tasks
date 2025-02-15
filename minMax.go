@@ -1,16 +1,22 @@
 package tasks
 
-import "slices"
-
 /*
 Создайте функцию, которая находит минимальное и максимальное
  значение в массиве.
 */
 
 func minMax(arr []int) (int, int) {
-	min := slices.Min(arr)
-	max := slices.Max(arr)
+	min, max := arr[0], arr[0]
+
+	for _, value := range arr {
+		if value < min {
+			min = value
+		}
+
+		if value > max {
+			max = value
+		}
+	}
+
 	return min, max
 }
-
-// Не уверен можно ли в задаче использовать пакет slices?

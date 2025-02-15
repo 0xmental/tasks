@@ -7,27 +7,22 @@ package tasks
 */
 
 func binarySearch(arr []int, x int) int {
-	high := len(arr) - 1
-	low := 0
+	right := len(arr)
+	left := -1
 
-	for low <= high {
-		mid := (high + low) / 2
+	for right-left > 1 {
+		mid := (left + right) / 2
 
-		if arr[mid] == x {
-			return mid
-		}
-		if arr[mid] > x {
-			high = mid - 1
-		}
-		if arr[mid] < x {
-			low = mid + 1
+		if arr[mid] >= x {
+			right = mid
+		} else {
+			left = mid
 		}
 	}
+
+	if arr[right] == x {
+		return right
+	}
+
 	return -1
 }
-
-/*
-Первым моим решением было не бинарный поиск, а линейный.
-Прочитал, что такое бинарный поиск и смог написать код, но не додумался сам как возвращать -1
-Цикл просто зависал если число не найдено, с +1 -1 подсказал гпт. Остальное самостоятельно.
-*/
