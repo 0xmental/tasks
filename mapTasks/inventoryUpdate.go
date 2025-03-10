@@ -11,10 +11,11 @@ import "fmt"
 
 func Update(stock map[string]int, order []string) {
 	for _, v := range order {
-		if stock[v] <= 0 {
-			fmt.Printf("Товар %s закончился на складе \n", v)
+		if stock[v] > 0 {
+			stock[v]--
 			continue
+		} else {
+			fmt.Printf("Товар %s закончился на складе \n", v)
 		}
-		stock[v]--
 	}
 }
