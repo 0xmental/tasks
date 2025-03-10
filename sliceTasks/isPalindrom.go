@@ -12,11 +12,3 @@ func isPalindrom(arr []int) bool {
 
 	return true
 }
-
-/*
-Альтернативное решение, про пакет рефлект узнал через гпт
-Решение придумал сам, но решил за основу взять вариант без пакета
-	copyArr := append([]int{}, arr...)
-	slices.Reverse(copyArr)
-	return reflect.DeepEqual(arr, copyArr)
-*/

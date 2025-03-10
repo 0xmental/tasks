@@ -7,27 +7,13 @@ package tasks
 
 func unique(arr []int) []int {
 	unqMap := make(map[int]bool)
+	var unqArr []int
 	for _, value := range arr {
-		if unqMap[value] { // Эту проверку можно опустить, но я решил оставить первоначальный вариант решения.
-			continue
+		if !unqMap[value] {
+			unqMap[value] = true
+			unqArr = append(unqArr, value)
 		}
-		unqMap[value] = true
 	}
 
-	unqArr := make([]int, 0, len(unqMap))
-	for i, _ := range unqMap {
-		unqArr = append(unqArr, i)
-	}
 	return unqArr
 }
-
-/*
-После того как решил эту задачу, разбирал ее через гпт
-Он написал прикольное решение, но к нему я сам не дошел
-  for _, value := range arr {
-      if !unqMap[value] {
-          unqMap[value] = true
-          unqArr = append(unqArr, value)
-      }
-  }
-*/
